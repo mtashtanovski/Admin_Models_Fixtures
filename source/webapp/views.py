@@ -8,7 +8,7 @@ def index_view(request):
     return render(request, 'index.html', {'articles': articles})
 
 
-def create_article_views(request):
+def create_article_view(request):
     if request.method == 'GET':
         return render(request, 'article_create.html')
     else:
