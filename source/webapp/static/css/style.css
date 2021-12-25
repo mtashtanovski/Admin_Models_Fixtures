@@ -4,3 +4,29 @@ body {
     background-color: #f8ffdd;
     color: #222222;
 }
+
+.heading{
+    margin: 20px 0 20px 20px
+}
+
+.content-text {
+    margin: 10px 0 10px 5px;
+}
+
+#article-ender {
+    width:30%;
+    margin:0 auto;
+    border-top: 1px dotted dimgray;
+    float: left;
+}
+
+.form-content {
+    min-width: 200px;
+    width: 30%;
+    margin: 20px;
+}
+
+.go-to-main {
+    margin: 20px 0 20px 20px;
+    font-size: 1.2em;
+}
