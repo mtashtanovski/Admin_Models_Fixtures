@@ -14,7 +14,7 @@
             <h1>Создание статьи</h1>
         </div>
 
-        <form class="form-content" action="/article/add/" method="post" >
+        <form class="form-content" method="post">
             {% csrf_token %}
 
             <div class="form-group">
@@ -35,7 +35,7 @@
             <button type="submit" class="btn btn-primary btn-lg">Создать</button>
         </form>
         <div class="go-to-main">
-            <p><a href="/">На главную</a></p>
+            <p><a href="{% url "index" %}">На главную</a></p>
         </div>
         <hr>
         <!--Footer-->

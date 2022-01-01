@@ -20,13 +20,13 @@
                 <div class="col-md-4">
                     <h4>{{ article.title }}</h4>
                     <p>{{ article.content|truncatechars:100 }}</p>
-                    <p><a class="btn btn-secondary btn-sm" href="/article/{{ article.pk }}/" role="button">Подробнее &raquo;</a></p>
+                    <p><a class="btn btn-secondary btn-sm" href="{% url "article_view" article.pk %}" role="button">Подробнее &raquo;</a></p>
                 </div>
             {% endfor %}
         </div>
 
         <div class="heading">
-        <h5><a href="/article/add/">Создать новую статью</a></h5>
+        <h5><a href="{% url "article_add" %}">Создать новую статью</a></h5>
         </div>
     </div> <!-- container end -->
     <hr>
