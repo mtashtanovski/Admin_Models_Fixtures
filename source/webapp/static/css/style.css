@@ -6,7 +6,7 @@ body {
 }
 
 .heading{
-    margin: 20px 0 20px 20px
+    margin: 20px 0 20px 10px
 }
 
 .content-text {
@@ -24,9 +24,4 @@ body {
     min-width: 200px;
     width: 30%;
     margin: 20px;
-}
-
-.go-to-main {
-    margin: 20px 0 20px 20px;
-    font-size: 1.2em;
 }

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %} Create article {% endblock %}
+{% block nav %}{% endblock %}
 {% block content %}
     <div class="heading">
         <h1>Создание статьи</h1>
@@ -26,9 +27,7 @@
 
         <button type="submit" class="btn btn-primary btn-lg">Создать</button>
     </form>
-    <div class="go-to-main">
-        <p><a href="{% url "index" %}">На главную</a></p>
-    </div>
+
     <hr>
     <!--Footer-->
     <footer class="container">
