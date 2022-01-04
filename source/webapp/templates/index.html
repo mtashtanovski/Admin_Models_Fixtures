@@ -12,6 +12,8 @@
                     <h4>{{ article.title }}</h4>
                     <p>{{ article.content|truncatechars:100 }}</p>
                     <p><a class="btn btn-secondary btn-sm" href="{% url "article_view" article.pk %}" role="button">Подробнее &raquo;</a></p>
+                    <p><a class="btn btn-primary btn-sm" href="{% url "article_update_view" article.pk %}" role="button">Изменить &raquo;</a></p>
+                    <p><a class="btn btn-danger btn-sm" href="{% url "article_delete_view" article.pk %}" role="button">Удалить &raquo;</a></p>
                 </div>
             {% endfor %}
         </div>

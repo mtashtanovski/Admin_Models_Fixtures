@@ -5,9 +5,9 @@
     <form action="{% url 'article_delete_view' article.pk %}" method="post">
     {% csrf_token %}
         <h2>Вы действительно хотите удалить статью: "{{ article.title }}"?</h2>
-        <button type="submit" class="btn btn-outline-danger">Да</button>
+            <button type="submit" class="btn btn-outline-danger btn-lg">Да</button>
     </form>
     <br>
-    <a href="{% url 'article_view' article.pk %}" class="btn btn-outline-success">Нет</a>
+    <a href="{% url 'article_view' article.pk %}" class="btn btn-outline-success btn-lg">Нет</a>
 
 {% endblock %}
