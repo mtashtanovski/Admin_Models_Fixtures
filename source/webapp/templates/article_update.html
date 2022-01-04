@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Update article {% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href={% url 'article_view' article.pk %}> Назад к статье</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <div class="heading">
+        <h1>Редактирование статьи</h1>
+    </div>
+
+    <form class="form-content" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="title">Название статьи</label>
+            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ article.title }}" >
+        </div>
+
+        <div class="form-group">
+              <label for="content">Текст статьи</label>
+              <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ article.content }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="author">Автор</label>
+            <input type="text" name="author" class="form-control" id="exampleFormControlInput1" value="{{ article.author }}">
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Изменить</button>
+    </form>
+
+    <hr>
+    <!--Footer-->
+    <footer class="container">
+        <p>&copy; MdR 2021</p>
+    </footer>
+{% endblock %}
