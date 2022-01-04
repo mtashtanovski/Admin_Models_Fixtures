@@ -12,24 +12,7 @@
     </div>
 
     <form class="form-content" method="post">
-        {% csrf_token %}
-
-        <div class="form-group">
-            <label for="title">Название статьи</label>
-            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ article.title }}" >
-        </div>
-
-        <div class="form-group">
-              <label for="content">Текст статьи</label>
-              <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ article.content }}</textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="author">Автор</label>
-            <input type="text" name="author" class="form-control" id="exampleFormControlInput1" value="{{ article.author }}">
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-lg">Изменить</button>
+        {% include "partials/form.html" with button_text="Изменить" %}
     </form>
 
     <hr>

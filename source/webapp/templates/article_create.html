@@ -8,24 +8,7 @@
     </div>
 
     <form class="form-content" method="post">
-        {% csrf_token %}
-
-        <div class="form-group">
-            <label for="title">Название статьи</label>
-            <input type="text" name="title" class="form-control" id="exampleFormControlInput1" >
-        </div>
-
-        <div class="form-group">
-              <label for="content">Текст статьи</label>
-              <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="author">Автор</label>
-            <input type="text" name="author" class="form-control" id="exampleFormControlInput1">
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-lg">Создать</button>
+        {% include "partials/form.html" with button_text="Создать" %}
     </form>
 
     <hr>
