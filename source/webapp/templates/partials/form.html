@@ -1,18 +1,29 @@
 {% csrf_token %}
 
-<div class="form-group">
-    <label for="title">Название статьи</label>
-    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ article.title }}" required />
-</div>
+{#<div class="form-group">#}
+{#    <label for="title">Название статьи</label>#}
+{#    <input type="text" name="title" class="form-control" id="exampleFormControlInput1" value="{{ article.title }}" required />#}
+{#</div>#}
+{##}
+{#<div class="form-group">#}
+{#      <label for="content">Текст статьи</label>#}
+{#      <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{ article.content }}</textarea>#}
+{#</div>#}
+{##}
+{#<div class="form-group">#}
+{#    <label for="author">Автор</label>#}
+{#    <input type="text" name="author" class="form-control" id="exampleFormControlInput1" value="{{ article.author }}" required />#}
+{#</div>#}
+{% for error in form.non_field_errors %}
+   <p class="text-danger">{{ error }}</p>
+{% endfor %}
 
-<div class="form-group">
-      <label for="content">Текст статьи</label>
-      <textarea name="content" class="form-control" id="exampleFormControlTextarea1" rows="3" required>{{ article.content }}</textarea>
-</div>
-
-<div class="form-group">
-    <label for="author">Автор</label>
-    <input type="text" name="author" class="form-control" id="exampleFormControlInput1" value="{{ article.author }}" required />
-</div>
+{% for field in form %}
+    <p><label for="{{ field.id_for_label }}">{{ field.label }}</label></p>
+    {% for error in field.errors %}
+        <p class="text-danger">{{ error }}</p>
+    {% endfor %}
+    {{ field }}
+{% endfor %}
 
 <button type="submit" class="btn btn-primary btn-lg">{{ button_text }}</button>
