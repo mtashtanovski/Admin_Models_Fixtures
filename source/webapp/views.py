@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponseNotFound, Http404
 from django.urls import reverse
+from django.views import View
+from django.views.generic import TemplateView, RedirectView
 
 from webapp.models import Article
 from webapp.forms import ArticleForm
 
 
-def index_view(request):
-    articles = Article.objects.order_by('updated_at')
-    return render(request, 'index.html', {'articles': articles})
+class IndexView(View):
+    def get(self, request, *args, **kwargs):
+        articles = Article.objects.order_by('updated_at')
+        return render(request, 'index.html', {'articles': articles})
 
 
 def create_article_view(request):
@@ -26,10 +29,12 @@ def create_article_view(request):
         return render(request, 'article_create.html', {"form": form})
 
 
-def article_view(request, pk):
-    article = get_object_or_404(Article, pk=pk)
-    context = {'article': article}
-    return render(request, 'article_view.html', context)
+class ArticleView(TemplateView):
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        article = get_object_or_404(Article, pk=kwargs.get('pk'))
+        context['article'] = article
+        return context
 
 
 def article_update_view(request, pk):
